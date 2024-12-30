@@ -12,11 +12,33 @@ enum NodeType {
  case Text
 }
 
+struct Attributes {
+    var name: String;
+    var value: String;
+}
+
 struct Node {
     var name: String;
-    var startTag: Bool;
-    var endTag: Bool;
+    var startTag: Bool?;
+    var endTag: Bool?;
+    var attributes: [Attributes]?;
     var type: NodeType;
+}
+
+extension String {
+    
+    func nextChar(_ index: Int) -> Character? {
+        if(self.count <= index + 1) {
+            return nil;
+        }
+        
+        let stringIndex = String.Index(utf16Offset: index, in: self)
+            
+        let currentIndex = self.index(stringIndex, offsetBy: 1);
+        return self[currentIndex]
+
+    }
+    
 }
 
 class Tokenizer {
@@ -86,7 +108,10 @@ class Tokenizer {
                 if(char == ">") {
                     
                     if(self.elementName.starts(with: "/")) {
-                        self.tokens += [Node(name: self.elementName, startTag: false, endTag: true, type: NodeType.Node)]
+                        // process attributes
+                        let attributes = self.processAttr(attrs: self.attrs);
+                        self.tokens += [Node(name: self.elementName, startTag: false, endTag: true, attributes: attributes, type: NodeType.Node)];
+                        self.attrs = "";
                     } else {
                         self.tokens += [
                             Node(name: self.elementName, startTag: true, endTag: false, type: NodeType.Node)
@@ -134,6 +159,12 @@ class Tokenizer {
         let currentIndex = html.index(stringIndex, offsetBy: 1);
         return html[currentIndex]
         
+    }
+    
+    func processAttr(attrs: String) -> [Attributes] {
+        print(attrs);
+        let attrParser = AttributeParser(attr: attrs)
+        return attrParser.start()
     }
     
 }

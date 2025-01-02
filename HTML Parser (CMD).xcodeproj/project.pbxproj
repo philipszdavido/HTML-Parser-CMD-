@@ -11,6 +11,8 @@
 		4F756D4D2D2061240033FBD8 /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D4C2D2061240033FBD8 /* Tokenizer.swift */; };
 		4F756D4F2D2077230033FBD8 /* AttributeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D4E2D2077230033FBD8 /* AttributeParser.swift */; };
 		4F756D512D214F7E0033FBD8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D502D214F7E0033FBD8 /* Utils.swift */; };
+		4F756D532D26BE840033FBD8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D522D26BE840033FBD8 /* Types.swift */; };
+		4F756D552D26BE9F0033FBD8 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D542D26BE9F0033FBD8 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,8 @@
 		4F756D4C2D2061240033FBD8 /* Tokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
 		4F756D4E2D2077230033FBD8 /* AttributeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeParser.swift; sourceTree = "<group>"; };
 		4F756D502D214F7E0033FBD8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4F756D522D26BE840033FBD8 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		4F756D542D26BE9F0033FBD8 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				4F756D4C2D2061240033FBD8 /* Tokenizer.swift */,
 				4F756D4E2D2077230033FBD8 /* AttributeParser.swift */,
 				4F756D502D214F7E0033FBD8 /* Utils.swift */,
+				4F756D522D26BE840033FBD8 /* Types.swift */,
+				4F756D542D26BE9F0033FBD8 /* extensions.swift */,
 			);
 			path = "HTML Parser (CMD)";
 			sourceTree = "<group>";
@@ -132,7 +138,9 @@
 				4F756D4D2D2061240033FBD8 /* Tokenizer.swift in Sources */,
 				4F756D4F2D2077230033FBD8 /* AttributeParser.swift in Sources */,
 				4F756D462D2061180033FBD8 /* main.swift in Sources */,
+				4F756D532D26BE840033FBD8 /* Types.swift in Sources */,
 				4F756D512D214F7E0033FBD8 /* Utils.swift in Sources */,
+				4F756D552D26BE9F0033FBD8 /* extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

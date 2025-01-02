@@ -8,12 +8,8 @@
 import Foundation
 
 class AttributeParser {
+    
     var attr: String = "";
-    var isValue = false;
-    var isKey = true;
-    var value = ""
-    var key = ""
-    var openKeyString = false;
     var attrs: [Attributes] = []
     
     init(attr: String) {
@@ -22,47 +18,61 @@ class AttributeParser {
     
     func start() -> [Attributes] {
         
-        for (index, char) in attr.enumerated() {
+        let tokens = tokenize();
+        
+        for (index, token) in tokens.enumerated() {
             
-            guard let nextChar = attr.nextChar(index) else {
-                break
-            }
+            let nextToken = tokens[index + 1];
             
-            if (char == "=") {
-                // set isValue to true
-                isValue = true
-                isKey = false;
+            if (nextToken != "=") {
+                
+                attrs += [Attributes(name: String(token))]
+                
                 continue;
             }
-            
-            if (char == "'" && !isAlphanumeric(String(nextChar))) {
-                isValue = false;
-                isKey = true;
-                
-                self.attrs += [Attributes(name: key, value: value)]
-                continue;
-            }
-            
-            if (isKey) {
-                key += String(char)
-                continue
-            }
-            
-            if (isValue) {
-                value += String(char);
-                
-                if (!isAlphanumeric(String(nextChar))) {
-                    
-                    isValue = false
-                    
-                }
-                
-                continue
-            }
-            
+                        
         }
         
         return attrs
         
     }
+    
+    func tokenize() -> [String] {
+        
+        var seenQuotes = false;
+        var attrs: [String] = [];
+        var concat = ""
+        
+        for (_, char) in attr.enumerated() {
+                        
+            if (char.containsQuotes() && !seenQuotes) {
+                seenQuotes = true;
+            } else if (char.containsQuotes() && seenQuotes) {
+                seenQuotes = false;
+            }
+            
+            if (char == " " && !seenQuotes) {
+                attrs += [concat];
+                concat = "";
+                continue;
+            }
+            
+            if (char == "=" && !seenQuotes) {
+                attrs += [concat, String(char)];
+                concat = "";
+                continue;
+            }
+            
+            concat += String(char);
+            
+        }
+        
+        attrs += [concat];
+        concat = "";
+        
+        return attrs.filter { currentAttr in
+            !currentAttr.isEmpty
+        };
+    }
+    
 }

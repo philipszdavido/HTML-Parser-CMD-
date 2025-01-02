@@ -42,10 +42,10 @@ var thisHtml = """
 //print(tokens)
 
 let attr = """
-  name="viewport" content="width=device-width, initial-scale=1.0"
+  class name =  "viewport" content="width=device-width, initial-scale=1.0"
 """
 
 let attrParser = AttributeParser(attr: attr)
-let attrs = attrParser.start();
+let attrs = attrParser.cleanStr();
 
 print(attrs)

@@ -7,40 +7,6 @@
 
 import Foundation
 
-enum NodeType {
- case Node
- case Text
-}
-
-struct Attributes {
-    var name: String;
-    var value: String;
-}
-
-struct Node {
-    var name: String;
-    var startTag: Bool?;
-    var endTag: Bool?;
-    var attributes: [Attributes]?;
-    var type: NodeType;
-}
-
-extension String {
-    
-    func nextChar(_ index: Int) -> Character? {
-        if(self.count <= index + 1) {
-            return nil;
-        }
-        
-        let stringIndex = String.Index(utf16Offset: index, in: self)
-            
-        let currentIndex = self.index(stringIndex, offsetBy: 1);
-        return self[currentIndex]
-
-    }
-    
-}
-
 class Tokenizer {
     
     var openTag = false;

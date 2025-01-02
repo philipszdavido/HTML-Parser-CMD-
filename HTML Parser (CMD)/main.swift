@@ -46,6 +46,6 @@ let attr = """
 """
 
 let attrParser = AttributeParser(attr: attr)
-let attrs = attrParser.cleanStr();
+let attrs = attrParser.start();
 
 print(attrs)

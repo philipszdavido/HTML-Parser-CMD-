@@ -10,7 +10,7 @@ import Foundation
 class AttributeParser {
     
     var attr: String = "";
-    var attrs: [Attributes] = []
+    var attrs: [Attributes] = [];
     
     init(attr: String) {
         self.attr = attr;
@@ -20,17 +20,33 @@ class AttributeParser {
         
         let tokens = tokenize();
         
+        print(tokens)
+        
         for (index, token) in tokens.enumerated() {
+                        
+            var nextToken: String = "";
             
-            let nextToken = tokens[index + 1];
+            if (index + 1 < tokens.count) {
+                
+                nextToken = tokens[index + 1];
+                
+            }
             
-            if (nextToken != "=") {
+            if (token == "=") {
+                
+                attrs += [Attributes(name: String(tokens[index - 1]), value: String(nextToken))];
+                continue;
+                
+            }
+
+            if (nextToken != "=" && token != "=" && tokens[index - 1] != "=") {
                 
                 attrs += [Attributes(name: String(token))]
                 
                 continue;
+                
             }
-                        
+                                                
         }
         
         return attrs

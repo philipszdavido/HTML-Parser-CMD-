@@ -17,45 +17,6 @@ class AttributeParser {
         self.attr = attr;
     }
     
-    func _start() -> [Attributes] {
-        
-        let tokens = tokenize();
-        
-        print(tokens)
-        
-        for (index, token) in tokens.enumerated() {
-                        
-            var nextToken: String = "";
-            
-            if (index + 1 < tokens.count) {
-                
-                nextToken = tokens[index + 1];
-                
-            }
-            
-            if (token == "=") {
-                
-                attrs += [Attributes(name: String(tokens[index - 1]), value: String(nextToken))];
-                continue;
-                
-            }
-
-            if (nextToken != "=" && token != "=" && prevToken != "=" && token != prevToken) {
-                
-                attrs += [Attributes(name: String(token))]
-                
-                continue;
-                
-            }
-            
-            prevToken = token
-                                                
-        }
-        
-        return attrs
-        
-    }
-    
     func start() -> [Attributes] {
 
         let tokens = tokenize();

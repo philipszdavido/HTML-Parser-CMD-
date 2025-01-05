@@ -36,16 +36,16 @@ var thisHtml = """
 </html>
 """;
 
-//let tokenizer = Tokenizer(html: thisHtml);
-//let tokens = tokenizer.tokenize()
+let tokenizer = Tokenizer(html: thisHtml);
+let tokens = tokenizer.tokenize()
+
+print(tokens)
+
+//let attr = """
+//  class name =  "viewport" content="width=device-width, initial-scale=1.0" [disabled]="false"
+//"""
 //
-//print(tokens)
-
-let attr = """
-  class name =  "viewport" content="width=device-width, initial-scale=1.0" [disabled]="false"
-"""
-
-let attrParser = AttributeParser(attr: attr)
-let attrs = attrParser.start();
-
-print(attrs)
+//let attrParser = AttributeParser(attr: attr)
+//let attrs = attrParser.start();
+//
+//print(attrs)

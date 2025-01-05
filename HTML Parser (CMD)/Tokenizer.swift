@@ -65,7 +65,7 @@ class Tokenizer {
                     continue;
                 }
                             
-                if(char == " ") {
+                if(char == " " && collectAttrs == false) {
                     // collect attributes
                     self.collectAttrs = true
                     continue
@@ -73,15 +73,17 @@ class Tokenizer {
                 
                 if(char == ">") {
                     
+                    // process attributes
+                    let attributes = self.processAttr(attrs: self.attrs);
+
                     if(self.elementName.starts(with: "/")) {
-                        // process attributes
-                        let attributes = self.processAttr(attrs: self.attrs);
                         self.tokens += [Node(name: self.elementName, startTag: false, endTag: true, attributes: attributes, type: NodeType.Node)];
                         self.attrs = "";
                     } else {
                         self.tokens += [
-                            Node(name: self.elementName, startTag: true, endTag: false, type: NodeType.Node)
+                            Node(name: self.elementName, startTag: true, endTag: false, attributes: attributes, type: NodeType.Node)
                         ];
+                        self.attrs = "";
                     }
                     
                     self.elementName = "";
@@ -105,8 +107,6 @@ class Tokenizer {
                 }
                                 
             }
-            
-        
         
         }
         
@@ -128,7 +128,6 @@ class Tokenizer {
     }
     
     func processAttr(attrs: String) -> [Attributes] {
-        print(attrs);
         let attrParser = AttributeParser(attr: attrs)
         return attrParser.start()
     }

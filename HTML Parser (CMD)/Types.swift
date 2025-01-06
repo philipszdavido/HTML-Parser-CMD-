@@ -17,10 +17,25 @@ struct Attributes {
     var value: String?;
 }
 
-struct Node {
+struct Token {
+    var index: Int;
     var name: String;
     var startTag: Bool?;
     var endTag: Bool?;
     var attributes: [Attributes]?;
     var type: NodeType;
+}
+
+protocol ElementNode {
+    var name: String { get set };
+}
+
+struct Element: ElementNode {
+    var name: String;
+    var children: [ElementNode];
+    var attributes: [Attributes]?;
+}
+
+struct Text: ElementNode {
+    var name: String;
 }

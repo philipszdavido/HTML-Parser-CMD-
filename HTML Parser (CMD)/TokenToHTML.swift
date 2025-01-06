@@ -12,7 +12,7 @@ class TokenToHTML {
     
     var html = ""
     
-    func convertToHTML(tokens: [Node]) -> String {
+    func convertToHTML(tokens: [Token]) -> String {
         
         for token in tokens.enumerated() {
             

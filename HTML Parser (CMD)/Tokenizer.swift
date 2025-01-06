@@ -15,14 +15,14 @@ class Tokenizer {
     var attrs = "";
     var elementName: String = "";
     var text: String = "";
-    var tokens: [Node] = [];
+    var tokens: [Token] = [];
     var html: String = "";
     
     init(html: String) {
         self.html = html;
     }
     
-    func tokenize() -> [Node] {
+    func tokenize() -> [Token] {
         
         for (index, char) in html.enumerated() {
             
@@ -77,11 +77,11 @@ class Tokenizer {
                     let attributes = self.processAttr(attrs: self.attrs);
 
                     if(self.elementName.starts(with: "/")) {
-                        self.tokens += [Node(name: self.elementName, startTag: false, endTag: true, attributes: attributes, type: NodeType.Node)];
+                        self.tokens += [Token(index: self.tokens.count, name: self.elementName, startTag: false, endTag: true, attributes: attributes, type: NodeType.Node)];
                         self.attrs = "";
                     } else {
                         self.tokens += [
-                            Node(name: self.elementName, startTag: true, endTag: false, attributes: attributes, type: NodeType.Node)
+                            Token(index: self.tokens.count, name: self.elementName, startTag: true, endTag: false, attributes: attributes, type: NodeType.Node)
                         ];
                         self.attrs = "";
                     }
@@ -101,7 +101,7 @@ class Tokenizer {
                 // process text
                 self.text += String(char);
                 if(nextChar == ">" || nextChar == "<") {
-                    self.tokens += [Node(name: self.text, startTag: false, endTag: false, type: NodeType.Text)]
+                    self.tokens += [Token(index: self.tokens.count, name: self.text, startTag: false, endTag: false, type: NodeType.Text)]
                     self.text = ""
                     continue;
                 }

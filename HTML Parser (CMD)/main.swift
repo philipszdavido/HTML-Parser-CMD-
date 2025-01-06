@@ -39,7 +39,12 @@ var thisHtml = """
 let tokenizer = Tokenizer(html: thisHtml);
 let tokens = tokenizer.tokenize()
 
-print(tokens)
+print(tokens);
+
+let tokenToHTML = TokenToHTML();
+let html = tokenToHTML.convertToHTML(tokens: tokens);
+
+print(html)
 
 //let attr = """
 //  class name =  "viewport" content="width=device-width, initial-scale=1.0" [disabled]="false"

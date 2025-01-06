@@ -13,6 +13,8 @@
 		4F756D512D214F7E0033FBD8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D502D214F7E0033FBD8 /* Utils.swift */; };
 		4F756D532D26BE840033FBD8 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D522D26BE840033FBD8 /* Types.swift */; };
 		4F756D552D26BE9F0033FBD8 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D542D26BE9F0033FBD8 /* extensions.swift */; };
+		4F756D572D2B31030033FBD8 /* TokenToHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D562D2B31030033FBD8 /* TokenToHTML.swift */; };
+		4F756D592D2B33CB0033FBD8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F756D582D2B33CB0033FBD8 /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +37,8 @@
 		4F756D502D214F7E0033FBD8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4F756D522D26BE840033FBD8 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		4F756D542D26BE9F0033FBD8 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		4F756D562D2B31030033FBD8 /* TokenToHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenToHTML.swift; sourceTree = "<group>"; };
+		4F756D582D2B33CB0033FBD8 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				4F756D502D214F7E0033FBD8 /* Utils.swift */,
 				4F756D522D26BE840033FBD8 /* Types.swift */,
 				4F756D542D26BE9F0033FBD8 /* extensions.swift */,
+				4F756D562D2B31030033FBD8 /* TokenToHTML.swift */,
+				4F756D582D2B33CB0033FBD8 /* Parser.swift */,
 			);
 			path = "HTML Parser (CMD)";
 			sourceTree = "<group>";
@@ -135,9 +141,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F756D572D2B31030033FBD8 /* TokenToHTML.swift in Sources */,
 				4F756D4D2D2061240033FBD8 /* Tokenizer.swift in Sources */,
 				4F756D4F2D2077230033FBD8 /* AttributeParser.swift in Sources */,
 				4F756D462D2061180033FBD8 /* main.swift in Sources */,
+				4F756D592D2B33CB0033FBD8 /* Parser.swift in Sources */,
 				4F756D532D26BE840033FBD8 /* Types.swift in Sources */,
 				4F756D512D214F7E0033FBD8 /* Utils.swift in Sources */,
 				4F756D552D26BE9F0033FBD8 /* extensions.swift in Sources */,
